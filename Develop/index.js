@@ -18,6 +18,63 @@ const questions = [
 // TODO: Create a function to write README file
 function writeToFile(fileName, data) {
   console.log(data);
+  fs.writeFile(fileName, `# ${data.title}\n\n`, (err) =>
+    err ? console.error(err) : console.log("success")
+  );
+  fs.appendFile(
+    fileName,
+    `## Table of Contents\n[ Description. ](#desc)\n[ Installation. ](#installation)\n[ Usage. ](#usage)\n[ Contribution Guidelines. ](#contribution)\n[ Test Instructions. ](#test)\n[ Liscence. ](#liscence)\n[ Contact Info. ](#contact)\n`,
+    (err) => (err ? console.error(err) : writeDescription())
+  );
+  function writeDescription() {
+    fs.appendFile(
+      fileName,
+      `<a name="description"></a>\n## Description\n ${data.description}\n`,
+      (err) => (err ? console.error(err) : writeInstall())
+    );
+  }
+  function writeInstall() {
+    fs.appendFile(
+      fileName,
+      `<a name="installation"></a>\n## Installation\n ${data.installation}\n`,
+      (err) => (err ? console.error(err) : writeUsage())
+    );
+  }
+  function writeUsage() {
+    fs.appendFile(
+      fileName,
+      `<a name="usage"></a>\n## Usage\n ${data.usage}\n`,
+      (err) => (err ? console.error(err) : writeContribution())
+    );
+  }
+  function writeContribution() {
+    fs.appendFile(
+      fileName,
+      `<a name="contribution"></a>\n## Contribution Guidelines\n ${data.contribution}\n`,
+      (err) => (err ? console.error(err) : writeTest())
+    );
+  }
+  function writeTest() {
+    fs.appendFile(
+      fileName,
+      `<a name="test"></a>\n## Test Instructions\n ${data.test}\n`,
+      (err) => (err ? console.error(err) : writeLiscence())
+    );
+  }
+  function writeLiscence() {
+    fs.appendFile(
+      fileName,
+      `<a name="licence"></a>\n## Licence\n ${data.licence}\n`,
+      (err) => (err ? console.error(err) : writeContact())
+    );
+  }
+  function writeContact() {
+    fs.appendFile(
+      fileName,
+      `<a name="contact"></a>\n## Got any questions?\n github.com/${data.github}\n ${data.email}\n`,
+      (err) => (err ? console.error(err) : console.log("success"))
+    );
+  }
 }
 
 // TODO: Create a function to initialize app
@@ -39,7 +96,7 @@ function init() {
       { type: "input", message: questions[7], name: "github" },
       { type: "input", message: questions[8], name: "email" },
     ])
-    .then((response) => writeToFile("README_PROJECT.md", response));
+    .then((response) => writeToFile("README.md", response));
 }
 
 // Function call to initialize app
