@@ -1,5 +1,7 @@
 # Professional README.md Generator
 
+![image](https://user-images.githubusercontent.com/94478511/155864637-d18773ef-fb8c-4219-a43a-1edcb8deef4a.png)
+
 ## Walkthrough video
 
 https://drive.google.com/file/d/1b67MHaEkfe0miDcroekn6LYeEOqI6yd1/view
