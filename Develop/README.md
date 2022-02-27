@@ -1,4 +1,4 @@
-# My Project ![AUR license](https://img.shields.io/aur/license/android-studio)
+# project1 ![APM](https://img.shields.io/apm/l/vim-mode)
 
 ## Table of Contents
 
@@ -19,30 +19,30 @@
 <a name="description"></a>
 ## Description
 
- This is the description of my project.
+ des
 <a name="installation"></a>
 ## Installation
 
- This is the installation instruction of my project.
+ instal
 <a name="usage"></a>
 ## Usage
 
- This is the usage information of my project.
+ info
 <a name="contribution"></a>
 ## Contribution Guidelines
 
- This provides the contribution guidelines of my project.
+ contri
 <a name="test"></a>
 ## Test Instructions
 
- This is the test instruction of my project.
+ test
 <a name="licence"></a>
 ## Licence
 
- Apache
+ MIT
 <a name="contact"></a>
 ## Got any questions?
 
  github.com/diablolaw
 
- abc@mail.com
+ elliottll

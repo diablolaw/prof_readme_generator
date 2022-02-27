@@ -20,43 +20,45 @@ function writeToFile(fileName, data) {
   switch (data.licence) {
     case "No Licence":
       fs.writeFile(fileName, `# ${data.title}\n\n`, (err) =>
-        err ? console.error(err) : console.log("success")
+        err ? console.error(err) : writeTable()
       );
       break;
     case "MIT":
       fs.writeFile(
         fileName,
         `# ${data.title} ![APM](https://img.shields.io/apm/l/vim-mode)\n\n`,
-        (err) => (err ? console.error(err) : console.log("success"))
+        (err) => (err ? console.error(err) : writeTable())
       );
       break;
     case "Apache":
       fs.writeFile(
         fileName,
         `# ${data.title} ![AUR license](https://img.shields.io/aur/license/android-studio)\n\n`,
-        (err) => (err ? console.error(err) : console.log("success"))
+        (err) => (err ? console.error(err) : writeTable())
       );
       break;
     case "GNU":
       fs.writeFile(
         fileName,
         `# ${data.title} ![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)\n\n`,
-        (err) => (err ? console.error(err) : console.log("success"))
+        (err) => (err ? console.error(err) : writeTable())
       );
       break;
     case "OpenBSD":
       fs.writeFile(
         fileName,
         `# ${data.title} ![License](https://img.shields.io/badge/License-BSD_3--Clause-blue.svg)\n\n`,
-        (err) => (err ? console.error(err) : console.log("success"))
+        (err) => (err ? console.error(err) : writeTable())
       );
   }
 
-  fs.appendFile(
-    fileName,
-    `## Table of Contents\n\n[ Description. ](#desc)\n\n[ Installation. ](#installation)\n\n[ Usage. ](#usage)\n\n[ Contribution Guidelines. ](#contribution)\n\n[ Test Instructions. ](#test)\n\n[ Liscence. ](#liscence)\n\n[ Contact Info. ](#contact)\n\n`,
-    (err) => (err ? console.error(err) : writeDescription())
-  );
+  function writeTable() {
+    fs.appendFile(
+      fileName,
+      `## Table of Contents\n\n[ Description. ](#desc)\n\n[ Installation. ](#installation)\n\n[ Usage. ](#usage)\n\n[ Contribution Guidelines. ](#contribution)\n\n[ Test Instructions. ](#test)\n\n[ Liscence. ](#liscence)\n\n[ Contact Info. ](#contact)\n\n`,
+      (err) => (err ? console.error(err) : writeDescription())
+    );
+  }
   function writeDescription() {
     fs.appendFile(
       fileName,
